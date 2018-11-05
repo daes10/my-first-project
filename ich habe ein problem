@@ -1,0 +1,41 @@
+ #include <stdio.h>
+int main()
+{
+	int posten, nummer, index;
+	double preisGesamt, summeGesamt;
+	int anzahl[5];
+	double preis[5];
+	
+	/*Startwert*/
+	preisGesamt = 0.0;
+	
+	do
+	{
+		printf("Rechnungsposten (min. 1, max. 5): ");
+		scanf("%d", &posten);
+	}
+	while(posten < 1 || posten > 5);
+	
+	for(nummer = 0; nummer < posten; nummer++)
+	{
+		printf("Artikel %d, Anzahl: ", nummer+1);
+		scanf("%d", &anzahl[index]);
+		printf("Artikel %d, Preis: ", nummer+1);
+		scanf("%lf", &preis[index]);
+	}
+	
+	printf("\nPosten  Anzahl  Preis einzeln  Preis gesamt\n");
+	
+	for(nummer = 0; nummer< posten; nummer++)
+	{
+		/*Berechnung*/
+		preisGesamt= anzahl[index] * preis[index];
+		summeGesamt= summeGesamt + preisGesamt;
+		printf("%6d  %6d  %8.2f Euro  %7.2f Euro\n",
+			nummer+1, anzahl[index], preis[index], preisGesamt);
+	}
+	
+	printf("Summe der Rechnung %19.2f Euro", summeGesamt);
+	
+	return 0;
+}
